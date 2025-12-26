@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantra Meditation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #f39c12; /* Saffron/Orange */
+            --dark: #2c3e50;
+            --light: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { line-height: 1.6; background: var(--light); overflow-x: hidden; }
+
+        /* --- Navbar --- */
+        nav {
+            background: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo { font-weight: bold; font-size: 1.5rem; color: var(--primary); }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { padding: 0 15px; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
+
+        /* --- Hero Carousel Section --- */
+        #home {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+        .carousel-container {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            color: white;
+            padding: 20px;
+            background-size: cover;
+            background-position: center;
+        }
+        /* Mobile Blur Effect */
+        @media (max-width: 768px) {
+            .slide::before {
+                content: "";
+                position: absolute;
+                top: 0; left: 0; width: 100%; height: 100%;
+                background: inherit;
+                filter: blur(8px);
+                z-index: -1;
+            }
+        }
+        .slide-content {
+            background: rgba(0,0,0,0.5);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+        .slide-content img.upi-img {
+            width: 150px; margin-top: 15px; border: 3px solid white;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+        }
+        .control-btn {
+            background: var(--primary);
+            border: none; color: white;
+            padding: 10px 20px; cursor: pointer; border-radius: 5px;
+        }
+
+        /* --- Donate Section --- */
+        #donate { padding: 80px 10px; display: flex; flex-wrap: wrap; gap: 20px; max-width: 1000px; margin: auto; }
+        .donate-left, .donate-right { flex: 1; min-width: 300px; padding: 20px; background: white; border-radius: 8px; }
+        .qr-placeholder { width: 100%; max-width: 250px; display: block; margin: 0 auto; }
+        
+        .whatsapp-strip {
+            background: #25d366; color: white; text-align: center;
+            padding: 10px; font-weight: bold;
+        }
+
+        /* --- Contact Section --- */
+        #contact {
+            padding: 60px 5%;
+            background: var(--dark);
+            color: white;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        .contact-box h3 { color: var(--primary); margin-bottom: 15px; }
+
+        /* Responsive Navigation */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px; left: 0; width: 100%;
+                background: white; padding: 20px;
+                box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { display: flex; }
+            .hamburger { display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ISKCON Sonebhadra</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#donate">Donate</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="meditation.html">Daily Mantra Meditation</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section style="height: 100vh; display: flex; align-items: center; justify-content: center; background: #fff8e1; text-align: center; padding: 20px; margin-top:60px;">
+        <div>
+            <h1 style="font-size: 3rem; color: #d35400;">Daily Mantra Meditation</h1>
+            <p style="font-size: 1.5rem;">Join us every morning from <strong>5:00 AM to 7:00 AM</strong></p>
+            <p>Experience peace through the chanting of the Maha Mantra.</p>
+        </div>
+    </section>
+
+    <section style="padding: 100px 5%; text-align: center; background: white;">
+        <h2>Connect with our Community</h2>
+        <p style="margin: 20px 0;">Stay updated with daily sessions and spiritual discourses.</p>
+        <a href="https://chat.whatsapp.com/example" style="background: #25d366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block;">
+            <i class="fab fa-whatsapp"></i> Join Sonebhadra WhatsApp Group
+        </a>
+    </section>
+  
+    <footer id="contact">
+        <div class="contact-box">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/ISKCON_Logo.svg/1200px-ISKCON_Logo.svg.png" alt="Logo" width="80">
+            <p><em>"To check the imbalance of values in life and achieve real unity and peace in the world."</em></p>
+        </div>
+        <div class="contact-box">
+            <h3>Quick Links</h3>
+            <p>Festivals</p>
+            <p>Bhagavad Gita Classes</p>
+            <p>Youth Forum</p>
+        </div>
+        <div class="contact-box">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Sonebhadra, Uttar Pradesh</p>
+            <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+            <p><i class="fas fa-envelope"></i> contact@iskconsonebhadra.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Carousel Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const carousel = document.getElementById('carousel');
+        const slideNumberText = document.getElementById('slideNumber');
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            slideNumberText.innerText = `${currentSlide + 1} / ${slides.length}`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateCarousel();
+        }
+    </script>
+</body>
+</html>
