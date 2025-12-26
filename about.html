@@ -18,7 +18,13 @@
 
         /* --- Navbar --- */
         nav {
-            background: var(--white);
+            /* The two key lines for Glassmorphism */
+            background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+            backdrop-filter: blur(10px);          /* Blurs the content behind it */
+            
+            /* Optional: Adds a thin border to make it pop */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            /* background: var(--white); */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -27,7 +33,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            /* box-shadow: 0 2px 5px rgba(0,0,0,0.1); */
         }
         .logo { font-weight: bold; font-size: 1.5rem; color: var(--primary); }
         .nav-links { display: flex; list-style: none; }
